@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">TaskLightITDemchenko</string>
+
+    <string name="login">LOGIN</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="password_r">Repeat Password</string>
+
+    <string name="sign_in_upper">SIGN IN</string>
+    <string name="sign_up_upper">SIGN UP</string>
+    <string name="sign_up_low">Sign up</string>
+    <string name="sign_in_low">Sign in</string>
+
+    <string name="text_account">Don\'t have an account?</string>
+    <string name="log_out">Log out</string>
+    <string name="description">Description:</string>
+    <string name="reviews">Reviews:</string>
+    <string name="rate">Rate:</string>
+    <string name="type_review">Type your review:</string>
+    <string name="your_review"> Your review:</string>
+    <string name="ok">SEND</string>
+    <string name="cancel">CANCEL</string>
+</resources>

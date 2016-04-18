@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme.NoActionBar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="@dimen/login_card_width"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_side">
+
+        <LinearLayout
+            android:id="@+id/linerRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="left"
+            android:layout_weight="1">
+
+      <!--      <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+
+                android:text="@string/rate"
+                android:textColor="@color/colorPrimary" />-->
+
+            <ImageView
+                android:id="@+id/rate_1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:tag="1"
+                app:srcCompat="@drawable/star"/>
+            <ImageView
+                android:id="@+id/rate_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:tag="2"
+                app:srcCompat="@drawable/star"/>
+            <ImageView
+                android:id="@+id/rate_3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:tag="3"
+                app:srcCompat="@drawable/star"/>
+            <ImageView
+                android:id="@+id/rate_4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:tag="4"
+                app:srcCompat="@drawable/star"/>
+
+            <ImageView
+                android:id="@+id/rate_5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:tag="5"
+                app:srcCompat="@drawable/star"/>
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top"
+            android:focusableInTouchMode="true">
+
+            <EditText
+                android:id="@+id/textReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/type_review"
+                android:nextFocusLeft="@id/login"
+                android:nextFocusUp="@id/login"
+                android:textSize="@dimen/text_size_login_input" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <TextView
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding = "8dp"
+                android:textColor="@color/colorAccent"
+                android:text="@string/cancel" />
+
+            <TextView
+                android:id="@+id/ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding = "8dp"
+                android:textColor="@color/colorAccent"
+                android:text="@string/ok" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
