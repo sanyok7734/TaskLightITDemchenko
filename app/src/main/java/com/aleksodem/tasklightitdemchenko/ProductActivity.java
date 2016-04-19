@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialogFragment;
@@ -67,12 +68,7 @@ public class ProductActivity extends AppCompatActivity implements IReviewView {
 
         sharedPreferences = getSharedPreferences(Constants.APP_PREFERENCES, MODE_PRIVATE);
 
-        if (sharedPreferences.contains(Constants.AUTHORIZATION)) {
-            isAuthorization = sharedPreferences.getBoolean(Constants.AUTHORIZATION, false);
-        }
-        if (!isAuthorization && toolbar != null) {
-            reviewButton.getLayoutParams().height = 0;
-        }
+        isAuthorization = sharedPreferences.getBoolean(Constants.AUTHORIZATION, false);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -96,18 +92,24 @@ public class ProductActivity extends AppCompatActivity implements IReviewView {
         presenter = new ReviewPresenter(this);
         presenter.loadReviews(product.getId());
 
-
-        reviewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogReview dialogFragment = new DialogReview();
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", product.getId());
-                dialogFragment.setArguments(bundle);
-                dialogFragment.setPresenter(presenter);
-                dialogFragment.show(getSupportFragmentManager(), "reviewDialog");
-            }
-        });
+        if (!isAuthorization) {
+            CoordinatorLayout.LayoutParams p = (CoordinatorLayout.LayoutParams) reviewButton.getLayoutParams();
+            p.setBehavior(null);
+            reviewButton.setLayoutParams(p);
+            reviewButton.hide();
+        } else {
+            reviewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DialogReview dialogFragment = new DialogReview();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("id", product.getId());
+                    dialogFragment.setArguments(bundle);
+                    dialogFragment.setPresenter(presenter);
+                    dialogFragment.show(getSupportFragmentManager(), "reviewDialog");
+                }
+            });
+        }
     }
 
     @Override
